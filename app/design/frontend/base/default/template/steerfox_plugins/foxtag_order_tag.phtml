@@ -1,0 +1,60 @@
+<?php
+$foxtagId = $this->getFoxtagId();
+/* @var $order Mage_Sales_Model_Order */
+$order = $this->getOrder();
+$userId = $this->getUserId();
+// If there is no order we stop here
+if (null === $order) return ;
+
+$itemList = $this->getItemList($order);
+
+if (!empty($foxtagId) && 0 < count($itemList)) :
+?>
+<!-- Foxtag tracking -->
+    <script type="text/javascript">
+        var _foxtag = _foxtag || {};
+        _foxtag.sa = '<?php echo $foxtagId; ?>';
+        _foxtag.tagEvents = ['order','view'];
+        _foxtag.pageType = 'purchase';
+        _foxtag.userId = '<?= $userId; ?>';
+        _foxtag.transaction = {
+            'id': '<?php echo $order->getId(); ?>',
+            'order_id': '<?php echo $order->getId(); ?>',
+            'items': [
+                <?php foreach ($itemList as $item): ?>
+                {
+                    'id': '<?php echo $item['id']; ?>',
+                    'sku': '<?php echo $item['sku']; ?>',
+                    'name': '<?php echo htmlspecialchars($item['name'], ENT_QUOTES); ?>',
+                    'cat': '<?php echo $item['cat']; ?>',
+                    'price': '<?php echo $item['price']; ?>',
+                    'margin': '<?php echo $item['margin']; ?>',
+                    'qty': '<?php echo $item['qty']; ?>'
+                },
+                <?php endforeach; ?>
+            ],
+            'total': '<?php echo $this->getConvertionAmount($order); ?>',
+            'subtotal': '<?php echo $this->getConvertionSubtotal($order); ?>',
+            'margin': '<?php echo $this->getConvertionMargin($order); ?>',
+            'tax': '<?php echo $this->getConvertionTax($order); ?>',
+            'shipping': '<?php echo $this->getConvertionShipping($order); ?>',
+            'discount': '<?php echo $this->getConvertionDiscount($order); ?>',
+            'status': '<?php echo $order->getStatus(); ?>',
+            'currency': '<?php echo $order->getOrderCurrencyCode(); ?>'
+        };
+
+        (function () {
+            var fxt = document.createElement('script');
+            fxt.type = 'text/javascript';
+            fxt.async = true;
+            fxt.src = '<?php echo $this->getFoxtagJsUrl(); ?>';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(fxt, s);
+        })();
+    </script>
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="<?php echo $this->getFoxtagUrl(); ?>?sa=<?php echo $foxtagId; ?>&e=%7B%22e%22%3A%5B<?php echo urlencode("'view','order'"); ?>%5D%7D&noscript=1"/>
+    </noscript>
+<?php endif; ?>

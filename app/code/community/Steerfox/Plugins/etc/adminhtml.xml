@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <steerfox_product translate="title" module="steerfox_plugins">
+            <title>Steerfox</title>
+            <sort_order>100</sort_order>
+            <children>
+                <manage translate="title" module="steerfox_plugins">
+                    <title>Manage export Products</title>
+                    <action>adminhtml/steerfoxproduct</action>
+                    <sort_order>10</sort_order>
+                </manage>
+            </children>
+        </steerfox_product>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <steerfox_product translate="title" module="steerfox_plugins">
+                        <title>Steerfox Plugins</title>
+                        <sort_order>75</sort_order>
+                        <children>
+                            <manage translate="title" module="steerfox_plugins">
+                                <title>Manage Products</title>
+                            </manage>
+                        </children>
+                    </steerfox_product>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <steerfox_plugins>
+                                        <title>Steerfox Plugins</title>
+                                    </steerfox_plugins>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

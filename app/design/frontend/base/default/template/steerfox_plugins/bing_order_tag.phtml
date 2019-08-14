@@ -1,0 +1,21 @@
+<?php
+    $bingId = $this->getBingId();
+    $orders = $this->getOrders();
+
+    if (!empty($bingId) && !empty($orders)) :
+?>
+    <!-- Bing conversion -->
+    <!--suppress JSUnresolvedVariable -->
+    <script>
+        <?php foreach ($orders as $order) : ?>
+        var uetq = uetq || [];
+        uetq.push({'gv': '<?php echo $this->getConvertionAmount($order); ?>' });
+        <?php endforeach; ?>
+    </script>
+
+    <noscript>
+        <?php foreach ($orders as $order) : ?>
+            <img src="//bat.bing.com/action/0?ti=<?php echo $bingId; ?>&Ver=2&gv=<?php echo $this->getConvertionAmount($order); ?>" height="0" width="0" style="display:none; visibility:hidden;"/>
+        <?php endforeach; ?>
+    </noscript>
+<?php endif; ?>

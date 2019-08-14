@@ -1,0 +1,14 @@
+<?php
+    $facebookId = $this->getFacebookId();
+    $order = $this->getOrder();
+    if (!empty($facebookId) && null !== $order) :
+?>
+    <script>
+        fbq('track', 'Purchase', {
+            content_ids: '<?php echo $this->getProductsIdsString($order); ?>',
+            content_type: 'product',
+            value: '<?php echo $this->getConvertionAmount($order); ?>',
+            currency: '<?php echo $order->getOrderCurrencyCode(); ?>'
+        });
+    </script>
+<?php endif; ?>

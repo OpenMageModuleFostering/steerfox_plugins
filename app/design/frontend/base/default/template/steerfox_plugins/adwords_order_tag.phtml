@@ -1,0 +1,26 @@
+<?php
+    $googleAdwordsId = $this->getGoogleAdwordsId();
+    $googleAdwordsLabel = $this->getGoogleAdwordsLabel();
+    $orders = $this->getOrders();
+
+    if (!empty($googleAdwordsId) && !empty($googleAdwordsLabel) && !empty($orders)) :
+    ?>
+    <!-- Adwords conversion -->
+    <?php foreach ($orders as $order) : ?>
+        <script type="text/javascript">
+            /* <![CDATA[ */
+            var google_conversion_id = "<?php echo $googleAdwordsId; ?>";
+            var google_conversion_language = "<?php $this->getLocaleCode(); ?>";
+            var google_conversion_format = "3";
+            var google_conversion_color = "ffffff";
+            var google_conversion_label = "<?php echo $googleAdwordsLabel; ?>";
+            var google_conversion_value = "<?php echo $this->getConvertionAmount($order); ?>";
+            var google_conversion_currency = "<?php echo $order->getOrderCurrencyCode(); ?>";
+            /* ]]> */
+        </script>
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+        <noscript>
+            <img height=1 width=1 border=0 src="//www.googleadservices.com/pagead/conversion/<?php echo $googleAdwordsId; ?>/?value=<?php echo $this->getConvertionAmount($order); ?>&conversion_currency=<?php echo $order->getOrderCurrencyCode(); ?>&label=<?php echo $googleAdwordsLabel; ?>&script=0">
+        </noscript>
+    <?php endforeach; ?>
+<?php endif; ?>

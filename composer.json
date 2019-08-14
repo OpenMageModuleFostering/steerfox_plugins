@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Steerfox_Plugins",
+    "type": "magento-module",
+    "license": "Apache-License,-Version-2.0",
+    "homepage": "",
+    "description": "The Easiest Buying Traffic Solution on the Market",
+    "authors": [
+    {
+        "name": "Steerfox",
+        "email": "magento@steerfox.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

@@ -1,0 +1,66 @@
+<?php
+$foxtagId = $this->getFoxtagId();
+$userId = $this->getUserId();
+$pageType = $this->getFoxtagPage();
+$currentProduct = $this->getCurrentProduct();
+$currentCategory = $this->getCurrentCategory();
+$productAddToCart = $this->getFoxtagProductAddToCart();
+$order = $this->getOrder();
+
+// If there is a foxtag id and we are not on success page
+if (!empty($foxtagId) && null === $order) :
+?>
+    <!-- Foxtag tracking -->
+    <script type="text/javascript">
+        var _foxtag = _foxtag || {};
+        _foxtag.sa = '<?php echo $foxtagId; ?>';
+        _foxtag.tagEvents = ['view'];
+        _foxtag.pageType = '<?= $pageType; ?>';
+        _foxtag.userId = '<?= $userId; ?>';
+
+        <?php if (null !== $currentProduct) : ?>
+        _foxtag.productId = '<?php echo $currentProduct->getId(); ?>';
+        _foxtag.productName = '<?php echo htmlspecialchars($currentProduct->getName(), ENT_QUOTES); ?>';
+        <?php endif; ?>
+
+        <?php if (null !== $currentCategory) : ?>
+        _foxtag.categoryId = '<?php echo $currentCategory->getId(); ?>';
+        _foxtag.categoryName = '<?php echo htmlspecialchars($currentCategory->getName(), ENT_QUOTES); ?>';
+        <?php endif; ?>
+
+        <?php if (is_array($productAddToCart) && 0 < count($productAddToCart)) : ?>
+        _foxtag.tagEvents.push('addtocart');
+        _foxtag.cartItem = {
+            'id': '<?php echo htmlspecialchars($productAddToCart['id'], ENT_QUOTES); ?>',
+            'sku': '<?php echo htmlspecialchars($productAddToCart['sku'], ENT_QUOTES); ?>',
+            'name': '<?php echo htmlspecialchars($productAddToCart['name'], ENT_QUOTES); ?>',
+            'cat': '<?php echo htmlspecialchars($productAddToCart['cat'], ENT_QUOTES); ?>',
+            'price': '<?php echo htmlspecialchars($productAddToCart['price'], ENT_QUOTES); ?>',
+            'margin': '<?php echo htmlspecialchars($productAddToCart['margin'], ENT_QUOTES); ?>',
+            'qty': '<?php echo htmlspecialchars($productAddToCart['qty'], ENT_QUOTES); ?>'
+        };
+        <?php endif; ?>
+        
+        (function () {
+            var fxt = document.createElement('script');
+            fxt.type = 'text/javascript';
+            fxt.async = true;
+            fxt.src = '<?php echo $this->getFoxtagJsUrl(); ?>';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(fxt, s);
+        })();
+        
+    </script>
+    <noscript>
+        <?php
+        $foxtagEvent = "'view'";
+        if (is_array($productAddToCart) && 0 < count($productAddToCart)) {
+            $foxtagEvent .= ",'addtocart'";
+        }
+        ?>
+        <img height="1" width="1" style="display:none"
+             src="<?php echo $this->getFoxtagUrl(); ?>?sa=<?php echo $foxtagId; ?>&e=%7B%22e%22%3A%5B<?php echo urlencode($foxtagEvent); ?>%5D%7D&noscript=1"/>
+    </noscript>
+    <!-- End Foxtag tracking -->
+<?php endif; ?>
+

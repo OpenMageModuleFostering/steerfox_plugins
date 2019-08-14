@@ -1,0 +1,109 @@
+<?php
+/**
+ * Copyright 2015 Steerfox SAS.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * @author    Steerfox <tech@steerfox.com>
+ * @copyright 2015 Steerfox SAS
+ * @license   http://www.apache.org/licenses/LICENSE-2.0
+ */
+
+$steerfox_helper = Mage::helper('steerfox_plugins');
+?>
+<div class="panel steerfox-panel">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-7">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <img src="<?php echo $this->getSkinUrl('images/steerfox/steerfox-logo.png'); ?>"
+                         style="margin:auto; max-width: 100%"/>
+                </div>
+                <div class="col-xs-12 text-center">
+                    <h2><?php echo $this->__('The Easiest Buying Traffic Solution on the Market'); ?></h2>
+                    <h4>
+                        <?php echo $this->__('Our buying Robot connects you to multiple traffic sources'); ?>
+                        <br/>
+                        <?php echo $this->__(
+                            'It determines the optimal combination of assets to catch shoppers to your online shopping'
+                        ); ?>
+                    </h4>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 text-left">
+                    <div class="row">
+                        <div class="col-xs-2 text-right"><h4 class="icon-steerfox-container"><img
+                                    src="<?php echo $this->getSkinUrl('images/steerfox/icon-file-text.png'); ?>"
+                                    class="img-responsive"/></h4></div>
+                        <div class="col-xs-10">
+                            <h4><?php echo $this->__('Product catalog'); ?></h4>
+
+                            <p class="text-justify"><?php echo $this->__(
+                                    'The strength of our solutions is to generate campaigns automatically from your product catalog. Our robots analyze its composition and your competitors, then they generate the best advertising campaigns with suitable ads : texts or banners.'
+                                ); ?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 text-left">
+                    <div class="row">
+                        <div class="col-xs-2 text-right"><h4 class="icon-steerfox-container"><img
+                                    src="<?php echo $this->getSkinUrl('images/steerfox/icon-road.png'); ?>"
+                                    class="img-responsive"/></h4></div>
+                        <div class="col-xs-10">
+                            <h4><?php echo $this->__('Generate traffic'); ?></h4>
+
+                            <p class="text-justify"><?php echo $this->__(
+                                    'You choose your budget at anytime depending on the wanted traffic for your shop. Whatever your budget, no commitment is required. Our robots boost sales of your e-commerce.'
+                                ); ?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 text-left">
+                    <div class="row">
+                        <div class="col-xs-2 text-right"><h4 class="icon-steerfox-container"><img
+                                    src="<?php echo $this->getSkinUrl('images/steerfox/icon-globe.png'); ?>"
+                                    class="img-responsive"/></h4></div>
+                        <div class="col-xs-10">
+                            <h4><?php echo $this->__('Multiples sources'); ?></h4>
+
+                            <p class="text-justify"><?php echo $this->__(
+                                    'Our buying robot connects to multiple sources of traffic (Google Adwords, Google Shopping, Bing Ads, Amazon Product Ads, Facebook Product Ads...). It will create, manage and optimize your campaigns in permanent interaction with the back office of suppliers. SteerFox provides a report of the results, consolidated on a single page.'
+                                ); ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a href="<?php print $steerfox_helper->getRegisterAction(); ?>" data-toggle="collapse" role="button"
+                       class="btn btn-default btn-steerfox"
+                       id=""><?php echo $this->__('Start the test'); ?></a>
+                    <a href="#steerfox_forms" data-toggle="collapse" role="button" class="btn btn-default btn-steerfox"
+                       id="already_customer"><?php echo $this->__('Advanced Settings'); ?></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-5">
+            <img class="img-responsive"
+                 src="<?php echo $this->getSkinUrl('images/steerfox/steerfox-reporting.png'); ?>"/>
+        </div>
+    </div>
+</div>

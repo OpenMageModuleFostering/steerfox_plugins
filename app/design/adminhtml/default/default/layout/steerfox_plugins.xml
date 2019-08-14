@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <adminhtml_steerfoxproduct_index>
+        <reference name="content">
+            <block type="steerfox_plugins/adminhtml_steerfoxproduct" name="steerfoxproduct"/>
+        </reference>
+    </adminhtml_steerfoxproduct_index>
+    <adminhtml_steerfoxproduct_grid>
+        <block type="steerfox_plugins/adminhtml_steerfoxproduct_grid" name="root"/>
+    </adminhtml_steerfoxproduct_grid>
+    <default>
+        <reference name="head">
+            <action method="addCss">
+                <name>steerfox/steerfox.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>steerfox/steerfox.js</name>
+            </action>
+        </reference>
+    </default>
+</layout>

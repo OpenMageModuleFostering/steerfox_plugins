@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head" before="-">
+            <block type="steerfox_plugins/tags" name="steerfox_fb_head_tags" as="steerfox_fb_head_tags" template="steerfox_plugins/fb_header_tag.phtml"/>
+            <block type="steerfox_plugins/tags" name="steerfox_bing_head_tags" as="steerfox_bing_head_tags" template="steerfox_plugins/bing_header_tag.phtml"/>
+            <block type="steerfox_plugins/tags" name="steerfox_gtm" as="steerfox_gtm" template="steerfox_plugins/gtm_tag.phtml"/>
+            <block type="steerfox_plugins/tags" name="steerfox_gsv" as="steerfox_gsv" template="steerfox_plugins/gsv_tag.phtml"/>
+            <!-- TODO retrait du foxtag de la version -->
+            <!--<block type="steerfox_plugins/tags" name="steerfox_foxtag_head_tags" as="steerfox_foxtag_head_tags" template="steerfox_plugins/foxtag_header_tag.phtml"/>-->
+            <!-- END TODO -->
+        </reference>
+        <reference name="before_body_end">
+            <block type="steerfox_plugins/tags" name="steerfox_fb_order_tags" as="steerfox_fb_order_tags" template="steerfox_plugins/fb_order_tag.phtml" />
+            <block type="steerfox_plugins/tags" name="steerfox_bing_order_tags" as="steerfox_bing_order_tags" template="steerfox_plugins/bing_order_tag.phtml" />
+            <block type="steerfox_plugins/tags" name="steerfox_adwords_order_tags" as="steerfox_adwords_order_tags" template="steerfox_plugins/adwords_order_tag.phtml" />
+            <!-- TODO retrait du foxtag de la version -->
+            <!--<block type="steerfox_plugins/tags" name="steerfox_foxtag_order_tags" as="steerfox_foxtag_order_tags" template="steerfox_plugins/foxtag_order_tag.phtml" />-->
+            <!-- END TODO -->
+        </reference>
+    </default>
+</layout>

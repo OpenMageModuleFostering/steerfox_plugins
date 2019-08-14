@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <steerfox_plugins translate="label" module="steerfox_plugins">
+            <label>Steerfox</label>
+            <sort_order>1</sort_order>
+        </steerfox_plugins>
+    </tabs>
+    <sections>
+        <steerfox_plugins translate="label" module="steerfox_plugins">
+            <label>Settings</label>
+            <tab>steerfox_plugins</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <welcolme translate="label" module="steerfox_plugins">
+                    <label>Account settings</label>
+                    <frontend_model>steerfox_plugins/adminhtml_system_config_form_fieldset_steerfoxform</frontend_model>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                </welcolme>
+                <account translate="label" module="steerfox_plugins">
+                    <label>Account settings</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <api_key>
+                            <backend_model>steerfox_plugins/apikey</backend_model>
+                            <label>API key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Enter your API key if you already have a SteerFox account</comment>
+                        </api_key>
+                    </fields>
+                </account>
+                <catalog translate="label" module="steerfox_plugins">
+                    <label>Catalog settings</label>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <export_lang>
+                            <label>Language</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>steerfox_plugins/languages</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Choose language of your catalog</comment>
+                        </export_lang>
+                        <export_currency>
+                            <label>Currency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>steerfox_plugins/currencies</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Choose currency of products in your catalog</comment>
+                        </export_currency>
+                        <export_margin>
+                            <label>Display margin in export</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Choose to export the margin on your products in Steerfox products' flow</comment>
+                        </export_margin>
+                        <use_sku_for_mpn>
+                            <label>Use SKU for MPN</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Choose to use the SKU value to fill MPN</comment>
+                        </use_sku_for_mpn>
+                        <mpn_attribute_code>
+                            <label>MPN attribute code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>The attribute code to use to fill MPN. (used only if SKU for MPN is false)</comment>
+                        </mpn_attribute_code>
+                        <!-- TODO : For future use of export by store -->
+                        <!--<main_store_view>-->
+                            <!--<label>Store used</label>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<source_model>steerfox_plugins/system_config_source_group</source_model>-->
+                            <!--<sort_order>10</sort_order>-->
+                            <!--<show_in_default>0</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>0</show_in_store>-->
+                            <!--<comment>Store used to represent the website for export</comment>-->
+                        <!--</main_store_view>-->
+                        <!-- FIN TODO -->
+                        <shop_id>
+                            <label>Shop ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Shop APi ID</comment>
+                        </shop_id>
+                    </fields>
+                </catalog>
+                <tags translate="label" module="steerfox_plugins">
+                    <label>Conversion tracking settings</label>
+                    <sort_order>3</sort_order>
+                    <show_in_default>0</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <gtm_id>
+                            <label>Google Tag Manager ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Enter the ID of your Google Tag Manager container ID if you wish to install it automatically</comment>
+                        </gtm_id>
+                        <adwords_id>
+                            <label>Google Adwords ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </adwords_id>
+                        <adwords_label>
+                            <label>Google Adwords Label</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Enter the google_conversion_id and google_conversion_label of your Google Adwords conversion tracking tag if you wish to install it automatically</comment>
+                        </adwords_label>
+                        <bing_id>
+                            <label>Bing ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Enter the ID of your Bing UET tracking tag if you wish to install it automatically</comment>
+                        </bing_id>
+                        <facebook_id>
+                            <label>Facebook ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Enter the ID of your Facebook tracking pixel if you wish to install it automatically</comment>
+                        </facebook_id>
+                        <!-- TODO retrait du foxtag de la version -->
+                        <!--<foxtag_id>-->
+                            <!--<label>Foxtag ID</label>-->
+                            <!--<frontend_type>text</frontend_type>-->
+                            <!--<sort_order>6</sort_order>-->
+                            <!--<show_in_default>0</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>0</show_in_store>-->
+                            <!--<comment>Enter the ID of your Foxtag account if you wish to install it automatically</comment>-->
+                        <!--</foxtag_id>-->
+                        <!-- END TODO -->
+                        <shipping>
+                            <label>Include shipping in conversion</label>
+                            <comment>Include shipping price in conversion value.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </shipping>
+                    </fields>
+                </tags>
+                <google translate="label" module="steerfox_plugins">
+                    <label>Google site verification</label>
+                    <sort_order>4</sort_order>
+                    <show_in_default>0</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <google_site_verification>
+                            <label>Google site verification</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Enter the Google site verification if you want to link your account and website</comment>
+                        </google_site_verification>
+                    </fields>
+                </google>
+            </groups>
+        </steerfox_plugins>
+    </sections>
+</config>
